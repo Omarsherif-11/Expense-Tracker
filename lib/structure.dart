@@ -63,11 +63,13 @@ class StructureState extends State<Structure> {
             }),
         ExListWidget(currentSelection, deleteExpense),
         SizedBox(height: 20),
-        currentSelection != expenseList
+        currentSelection != expenseList || currentSelection.isEmpty
             ? SizedBox()
             : ElevatedButton(
                 onPressed: () => setState(() {
                       expenseList.clear();
+                      filter = null;
+                      total = 0;
                     }),
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.red.shade300,
