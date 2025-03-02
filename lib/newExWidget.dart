@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 class NewExWidget extends StatelessWidget {
@@ -20,7 +21,8 @@ class NewExWidget extends StatelessWidget {
               decoration: InputDecoration(labelText: 'Amount in EGP'),
               controller: amountValue),
           DropdownButton<String>(
-            hint: Text('Choose a category'),
+            hint: Text(
+                category == null ? 'Choose a category' : category.toString()),
             value: category,
             items: [
               'Food',
@@ -53,6 +55,5 @@ class NewExWidget extends StatelessWidget {
   void handlePress() {
     callBackFunc(
         t: titleValue.text, a: double.parse(amountValue.text), c: category);
-    category = "";
   }
 }

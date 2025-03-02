@@ -7,6 +7,8 @@ import 'package:masroufi/expense.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
 class Structure extends StatefulWidget {
+  const Structure({super.key});
+
   @override
   State<StatefulWidget> createState() {
     return StructureState();
@@ -27,6 +29,7 @@ class StructureState extends State<Structure> {
   ];
   String? filter;
   double total = 0;
+  @override
   Widget build(BuildContext context) {
     return Column(
       children: [
@@ -47,7 +50,8 @@ class StructureState extends State<Structure> {
         ),
         NewExWidget(callBackFunc: addNewExpense),
         DropdownButton(
-            hint: Text('Choose a category'),
+            hint:
+                Text(filter == null ? 'Choose a category' : filter.toString()),
             items: categories.map((String item) {
               return DropdownMenuItem<String>(value: item, child: Text(item));
             }).toList(),

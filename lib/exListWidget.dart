@@ -6,8 +6,8 @@ import 'package:masroufi/expense.dart';
 class ExListWidget extends StatelessWidget {
   List<Expense> l_ex = [];
   Function(BuildContext, int)? callbackFunction;
-  ExListWidget(List<Expense> l, Function(BuildContext, int) func) {
-    this.l_ex = l;
+  ExListWidget(List<Expense> l, Function(BuildContext, int) func, {super.key}) {
+    l_ex = l;
     callbackFunction = func;
   }
   @override
